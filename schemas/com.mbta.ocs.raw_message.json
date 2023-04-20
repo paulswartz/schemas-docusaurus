@@ -13,7 +13,7 @@
     "source": {
       "description": "Identifies the context in which an event happened.",
       "$ref": "#/$defs/sourcedef",
-      "examples" : [
+      "examples": [
         "mbta.com/trike-12345"
       ]
     },
@@ -27,7 +27,7 @@
     "type": {
       "description": "Describes the type of event related to the originating occurrence.",
       "$ref": "#/$defs/typedef",
-      "examples" : [
+      "examples": [
         "com.mbta.ocs.raw_message"
       ]
     },
@@ -44,15 +44,17 @@
     },
     "data": {
       "description": "The event payload.",
-      "$ref": "#/$defs/datadef",
-      "examples": [
-        {
-          "raw": "791612,RGPS,08:51:54,G,U15-141-626,3639,42.335725,71.145005,0.00,75.94"
-        }
-      ]
+      "$ref": "#/$defs/datadef"
     }
   },
-  "required": ["id", "source", "specversion", "type", "data", "time"],
+  "required": [
+    "id",
+    "source",
+    "specversion",
+    "type",
+    "data",
+    "time"
+  ],
   "$defs": {
     "iddef": {
       "type": "string",
@@ -81,13 +83,18 @@
       "minLength": 1
     },
     "datadef": {
-            "type": "object",
-      "required": ["raw"],
+      "type": "object",
+      "required": [
+        "raw"
+      ],
       "properties": {
         "raw": {
-      "description": "Raw OCS string, without the trailing record flag.",
-    "type": "string",
-          "minLength": 1
+          "description": "Raw OCS string, without the trailing record flag.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "791612,RGPS,08:51:54,G,U15-141-626,3639,42.335725,71.145005,0.00,75.94"
+          ]
         }
       }
     }
