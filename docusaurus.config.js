@@ -31,7 +31,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  staticDirectories: ['static', 'events'],
   presets: [
     [
       'classic',
@@ -53,6 +53,7 @@ const config = {
     ],
   ],
 
+  themes: [["docusaurus-json-schema-plugin", {}]],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -67,9 +68,9 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'eventsSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Events',
           },
           {
             href: 'https://github.com/paulswartz/schemas-docusaurus',
@@ -85,8 +86,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/intro',
+                label: 'Events',
+                to: '/category/events',
               },
             ],
           },
