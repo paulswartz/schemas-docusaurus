@@ -1,0 +1,14 @@
+---
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Schema from "@site/schemas/com.mbta.ocs.raw_message.json";
+import JSONSchemaViewer from "@theme/JSONSchemaViewer";
+
+Viewer :
+
+<JSONSchemaViewer schema={ Schema  } />
+
+JSON Schema :
+
+<CodeBlock language="json">{JSON.stringify(Schema, null, 2)}</CodeBlock>
