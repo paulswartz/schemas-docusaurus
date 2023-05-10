@@ -1,31 +1,20 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json",
   "description": "Raw message from the OCS",
   "type": "object",
   "properties": {
-    "id": {
-      "description": "Identifies the event.",
-      "$ref": "#/$defs/iddef",
-      "examples": ["prLSlfYXlQ8Nmsa8gyVi6PPZUmA="]
-    },
     "source": {
       "description": "Identifies the context in which an event happened.",
-      "$ref": "#/$defs/sourcedef",
       "examples": ["mbta.com/trike-12345"]
     },
     "specversion": {
-      "description": "The version of the CloudEvents specification which the event uses.",
-      "$ref": "#/$defs/specversiondef",
-      "examples": ["1.0"]
+      "const": "1.0"
     },
     "type": {
-      "description": "Describes the type of event related to the originating occurrence.",
-      "$ref": "#/$defs/typedef",
-      "examples": ["com.mbta.ocs.raw_message"]
+      "const": "com.mbta.ocs.raw_message"
     },
     "time": {
-      "description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
-      "$ref": "#/$defs/timedef",
       "examples": ["2018-04-05T17:31:00Z"]
     },
     "partitionkey": {
@@ -39,28 +28,6 @@
   },
   "required": ["id", "source", "specversion", "type", "data", "time"],
   "$defs": {
-    "iddef": {
-      "type": "string",
-      "minLength": 1
-    },
-    "sourcedef": {
-      "type": "string",
-      "format": "uri-reference",
-      "minLength": 1
-    },
-    "specversiondef": {
-      "type": "string",
-      "minLength": 1
-    },
-    "typedef": {
-      "type": "string",
-      "const": "com.mbta.ocs.raw_message"
-    },
-    "timedef": {
-      "type": "string",
-      "format": "date-time",
-      "minLength": 1
-    },
     "partitionkeydef": {
       "type": "string",
       "minLength": 1
