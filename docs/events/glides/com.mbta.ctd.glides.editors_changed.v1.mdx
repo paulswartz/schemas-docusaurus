@@ -1,0 +1,27 @@
+---
+---
+
+import Schema from "@site/schemas/com.mbta.ctd.glides.editors_changed.v1.json";
+import EventSchema from "@site/src/components/EventSchema.tsx";
+
+Operator sign in and out of editing specific trainsheets. This event publishes
+changes to who is editing. Since one action by an inspector might result in
+multiple changes, for example if they sign out of one location and in to
+another, the changes are published in a list.
+
+In practice, we limit each location to have only one editor, and limit each
+editor to only one location, but that rule may or may not change and this data
+in this event doesn't guarantee that.
+
+Note that the author may or may not match the editors in changes, since
+inspectors can change whether other people are editing. For example, when an
+inspector takes over editing at a location, they may sign out the previous
+editor. Then they would issue a stop change for the previous editor and a start
+change for themself.
+
+Fields in the event:
+
+- `metadata` (Metadata): how the changes were entered in Glides, including the author.
+- `changes` (array of EditorChange): a list of start and stop editing events
+
+<EventSchema schema={ Schema } />

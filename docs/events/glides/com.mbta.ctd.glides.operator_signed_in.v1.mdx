@@ -1,0 +1,21 @@
+---
+---
+
+import Schema from "@site/schemas/com.mbta.ctd.glides.operator_signed_in.v1.json";
+import EventSchema from "@site/src/components/EventSchema.tsx";
+
+At the start of their shift, operators need to confirm that they are
+fit-for-duty and do not have any electronic devices. They currently do this by
+physically signing a paper trainsheet: in the future, they will do this
+digitally.
+
+Fields in the event:
+
+- `metadata` (Metadata): how the operator was signed in in Glides, including the inspector who signed them in.
+- `operator` (Operator): the operator who signed in
+- `signedInAt` (RFC3999 timestamp): the time at which they signed in (separate from the time of the event)
+- `signature` (Signature): how the operator confirmed that they signed in.
+
+Originally described in [RFC18](https://github.com/mbta/technology-docs/blob/main/rfcs/accepted/0018-glides-trainsheet-events.md).
+
+<EventSchema schema={ Schema } />
