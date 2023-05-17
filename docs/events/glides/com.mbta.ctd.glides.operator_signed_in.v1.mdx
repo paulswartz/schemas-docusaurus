@@ -1,8 +1,7 @@
 ---
 ---
 
-import Schema from "@site/schemas/com.mbta.ctd.glides.operator_signed_in.v1.json";
-import EventSchema from "@site/src/components/EventSchema.tsx";
+import EventSchemaPath from "@site/src/components/EventSchemaPath.tsx";
 
 At the start of their shift, operators need to confirm that they are
 fit-for-duty and do not have any electronic devices. They currently do this by
@@ -18,4 +17,4 @@ Fields in the event:
 
 Originally described in [RFC18](https://github.com/mbta/technology-docs/blob/main/rfcs/accepted/0018-glides-trainsheet-events.md).
 
-<EventSchema schema={ Schema } />
+<EventSchemaPath event="com.mbta.ctd.glides.operator_signed_in.v1" />
