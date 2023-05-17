@@ -15,7 +15,8 @@
     "format": "prettier --write **/*.{js,mdx,ts,tsx,json}",
     "typecheck": "tsc",
     "test": "jest",
-    "test:schemas": "ajv compile -s \"schemas/com.*.json\" --spec=draft2020 -c ajv-formats -r \"schemas/cloudevents.json\" -r \"schemas/glides-events-schema.json\""
+    "test:schemas": "ajv compile -s \"schemas/com.*.json\" --spec=draft2020 -c ajv-formats --strict=true -r \"schemas/cloudevents.json\" -r \"schemas/glides-events-schema.json\"",
+    "test:examples": "ts-node src/scripts/validate_examples.ts"
   },
   "dependencies": {
     "@docusaurus/core": "2.4.0",

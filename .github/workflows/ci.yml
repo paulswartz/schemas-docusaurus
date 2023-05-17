@@ -22,3 +22,5 @@ jobs:
         run: yarn test
       - name: Validate schemas
         run: yarn test:schemas
+      - name: Validate examples
+        run: yarn test:examples
