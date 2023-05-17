@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mbta/schemas/blob/main/schemas/com.mbta.ocs.raw_message.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Raw message from the OCS",
   "type": "object",
   "properties": {
@@ -23,7 +24,9 @@
       "$ref": "cloudevents.json#/properties/time"
     },
     "partitionkey": {
-      "$ref": "cloudevents.json#/properties/partitionkey"
+      "type": "string",
+      "minLength": 1,
+      "description": "Key used to balance messages across multiple shards"
     },
     "data": {
       "description": "The event payload.",

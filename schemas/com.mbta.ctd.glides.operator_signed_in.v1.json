@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/mbta/schemas/blob/main/schemas/glides-events-schema.json",
+  "$id": "https://github.com/mbta/schemas/blob/main/schemas/com.mbta.ctd.glides.operator_signed_in.v1.json",
   "description": "Operator Signed In",
   "type": "object",
   "properties": {
