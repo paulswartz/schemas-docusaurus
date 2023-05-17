@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 // @ts-ignore
 import JSONSchemaViewer from "@theme/JSONSchemaViewer";
@@ -23,16 +25,19 @@ export default function EventSchemaPath(props: { event: object }): JSX.Element {
     return <div>Error: {error.message}</div>;
   } else if (resolvedSchema != undefined) {
     return (
-      <div>
-        <JSONSchemaViewer
-          schema={resolvedSchema}
-          viewerOptions={viewerOptions}
-        />
-        JSON Schema :
-        <CodeBlock language="json">
-          {JSON.stringify(resolvedSchema, null, 2)}
-        </CodeBlock>
-      </div>
+      <Tabs>
+        <TabItem value="schema" label="Schema" default>
+          <JSONSchemaViewer
+            schema={resolvedSchema}
+            viewerOptions={viewerOptions}
+          />
+        </TabItem>
+        <TabItem value="json" label="JSON">
+          <CodeBlock language="json">
+            {JSON.stringify(resolvedSchema, null, 2)}
+          </CodeBlock>
+        </TabItem>
+      </Tabs>
     );
   } else {
     return <div>Loading {props.event}...</div>;
