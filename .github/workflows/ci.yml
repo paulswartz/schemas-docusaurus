@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        id: configure
+      - name: Install
+        run: yarn
+      - name: Check Formatting
+        run: yarn format --check
+      - name: Typecheck
+        run: yarn typecheck
+      - name: Tests
+        run: yarn test

@@ -22,7 +22,7 @@ export default function EventSchemaPath(props: { event: object }): JSX.Element {
   }, []);
 
   if (error != undefined) {
-    return <div>Error: {error.message}</div>;
+    return <div>{`Error: ${error.message}`}</div>;
   } else if (resolvedSchema != undefined) {
     return (
       <Tabs>
@@ -40,6 +40,6 @@ export default function EventSchemaPath(props: { event: object }): JSX.Element {
       </Tabs>
     );
   } else {
-    return <div>Loading {props.event}...</div>;
+    return <div>{`Loading ${props.event}...`}</div>;
   }
 }
