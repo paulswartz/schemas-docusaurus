@@ -1,7 +1,9 @@
 ---
 ---
 
+import GlidesExamples from "@site/examples/glides-events-schema/glides-examples.json";
 import EventSchemaPath from "@site/src/components/EventSchemaPath.tsx";
+import Examples from "@site/src/components/Examples.tsx";
 
 Operator sign in and out of editing specific trainsheets. This event publishes
 changes to who is editing. Since one action by an inspector might result in
@@ -23,4 +25,11 @@ Fields in the event:
 - `metadata` (Metadata): how the changes were entered in Glides, including the author.
 - `changes` (array of EditorChange): a list of start and stop editing events
 
+<Examples
+  examples={{
+    Example: GlidesExamples.find(
+      (example) => example.type == "com.mbta.ctd.glides.editors_changed.v1"
+    ),
+  }}
+/>
 <EventSchemaPath event="com.mbta.ctd.glides.editors_changed.v1" />

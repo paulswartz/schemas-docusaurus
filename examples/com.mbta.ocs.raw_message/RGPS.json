@@ -1,0 +1,11 @@
+{
+  "data": {
+    "raw": "791612,RGPS,08:51:54,G,U15-141-626,3639,42.335725,71.145005,0.00,75.94"
+  },
+  "id": "prLSlfYXlQ8Nmsa8gyVi6PPZUmA=",
+  "partitionkey": "{10.0.0.28:8081 -> 10.0.0.2:65473}",
+  "source": "ctd.mbta.com/trike-1234",
+  "specversion": "1.0",
+  "time": "2023-01-29T13:51:54.990000Z",
+  "type": "com.mbta.ocs.raw_message"
+}

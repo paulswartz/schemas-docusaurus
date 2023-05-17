@@ -1,7 +1,9 @@
 ---
 ---
 
+import GlidesExamples from "@site/examples/glides-events-schema/glides-examples.json";
 import EventSchemaPath from "@site/src/components/EventSchemaPath.tsx";
+import Examples from "@site/src/components/Examples.tsx";
 
 At the start of their shift, operators need to confirm that they are
 fit-for-duty and do not have any electronic devices. They currently do this by
@@ -17,4 +19,11 @@ Fields in the event:
 
 Originally described in [RFC18](https://github.com/mbta/technology-docs/blob/main/rfcs/accepted/0018-glides-trainsheet-events.md).
 
+<Examples
+  examples={{
+    Example: GlidesExamples.find(
+      (example) => example.type == "com.mbta.ctd.glides.operator_signed_in.v1"
+    ),
+  }}
+/>
 <EventSchemaPath event="com.mbta.ctd.glides.operator_signed_in.v1" />
