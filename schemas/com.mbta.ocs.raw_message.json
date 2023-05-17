@@ -4,67 +4,42 @@
   "type": "object",
   "properties": {
     "id": {
-      "description": "Identifies the event.",
-      "$ref": "#/$defs/iddef",
+      "$ref": "cloudevents.json#/properties/id",
       "examples": ["prLSlfYXlQ8Nmsa8gyVi6PPZUmA="]
     },
     "source": {
-      "description": "Identifies the context in which an event happened.",
-      "$ref": "#/$defs/sourcedef",
+      "$ref": "cloudevents.json#/properties/source",
       "examples": ["mbta.com/trike-12345"]
     },
     "specversion": {
-      "description": "The version of the CloudEvents specification which the event uses.",
-      "$ref": "#/$defs/specversiondef",
-      "examples": ["1.0"]
+      "const": "1.0",
+      "$ref": "cloudevents.json#/properties/specversion"
     },
     "type": {
-      "description": "Describes the type of event related to the originating occurrence.",
-      "$ref": "#/$defs/typedef",
-      "examples": ["com.mbta.ocs.raw_message"]
+      "const": "com.mbta.ocs.raw_message",
+      "$ref": "cloudevents.json#/properties/type"
     },
     "time": {
-      "description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
-      "$ref": "#/$defs/timedef",
-      "examples": ["2018-04-05T17:31:00Z"]
+      "$ref": "cloudevents.json#/properties/time"
     },
     "partitionkey": {
-      "description": "A partition key for the event, typically for the purposes of defining a causal relationship/grouping between multiple events.",
-      "$ref": "#/$defs/partitionkeydef"
+      "$ref": "cloudevents.json#/properties/partitionkey"
     },
     "data": {
       "description": "The event payload.",
       "$ref": "#/$defs/datadef"
     }
   },
-  "required": ["id", "source", "specversion", "type", "data", "time"],
+  "required": [
+    "id",
+    "source",
+    "specversion",
+    "type",
+    "data",
+    "time",
+    "partitionkey"
+  ],
   "$defs": {
-    "iddef": {
-      "type": "string",
-      "minLength": 1
-    },
-    "sourcedef": {
-      "type": "string",
-      "format": "uri-reference",
-      "minLength": 1
-    },
-    "specversiondef": {
-      "type": "string",
-      "minLength": 1
-    },
-    "typedef": {
-      "type": "string",
-      "const": "com.mbta.ocs.raw_message"
-    },
-    "timedef": {
-      "type": "string",
-      "format": "date-time",
-      "minLength": 1
-    },
-    "partitionkeydef": {
-      "type": "string",
-      "minLength": 1
-    },
     "datadef": {
       "type": "object",
       "required": ["raw"],

@@ -1,45 +1,45 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'MBTA Event Schemas',
-  tagline: '',
-  favicon: 'img/favicon.ico',
+  title: "MBTA Event Schemas",
+  tagline: "",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: (process.env.GITHUB_ORIGIN || "http://localhost:3000"),
+  url: process.env.GITHUB_ORIGIN || "http://localhost:3000",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: (process.env.GITHUB_BASE || "/"),
+  baseUrl: process.env.GITHUB_BASE || "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "mbta", // Usually your GitHub org/user name.
   projectName: "schemas", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
-  staticDirectories: ['static', 'events'],
+  staticDirectories: ["static"],
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           routeBasePath: "/",
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -47,30 +47,31 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
   ],
 
   themes: [["docusaurus-json-schema-plugin", {}]],
+  plugins: ["./src/plugins/deref-json-schemas"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: 'Schemas',
+        title: "Schemas",
         logo: {
-          alt: 'MBTA',
-          src: 'img/logo.png',
+          alt: "MBTA",
+          src: "img/logo.png",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'eventsSidebar',
-            position: 'left',
-            label: 'Events',
+            type: "docSidebar",
+            sidebarId: "eventsSidebar",
+            position: "left",
+            label: "Events",
           },
           {
             href: "https://github.com/mbta/schemas",
@@ -80,19 +81,19 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Events',
-                to: '/category/events',
+                label: "Events",
+                to: "/category/events",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
                 label: "GitHub",
